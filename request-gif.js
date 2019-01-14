@@ -12,12 +12,6 @@ $(document).ready(function() {
  * upon receiving a response from Giphy, updates the DOM to display the new GIF
  */
 function fetchAndDisplayGif(event) {
-
-    // check user submission
-    var userValidation = document.getElementById("usertest").value;
-    console.log(userValidation);
-
-    if (userValidation === "5") {
     
         // This prevents the form submission from doing what it normally does: 
         // send a request (which would cause our page to refresh).
@@ -26,11 +20,11 @@ function fetchAndDisplayGif(event) {
         event.preventDefault();
         
         // get the user's input text from the DOM
-        var searchQuery = $('#tag').val(); // TODO should be e.g. "dance"
+        var searchQuery = $("#tag").val(); // TODO should be e.g. "dance"
         // configure a few parameters to attach to our request
         var params = { 
             api_key: "dc6zaTOxFJmzC", 
-            tag : "jackso 5 " + searchQuery // TODO should be e.g. "jackson 5 dance"
+            tag : "jackso_5 " + searchQuery // TODO should be e.g. "jackson 5 dance"
         };
         console.log(params.tag); //test
         // make an ajax request for a random GIF
@@ -47,10 +41,12 @@ function fetchAndDisplayGif(event) {
                 // TODO
                 // 1. set the source attribute of our image to the image_url of the GIF
                 let jacksonURL = response.data.image_url;
+                console.log(jacksonURL);
                 document.getElementById("gif").setAttribute("src", jacksonURL);
 
                 // 2. hide the feedback message and display the image
                 setGifLoadedStatus(true);
+                $("#gif").attr("hidden", false);
 
             },
             error: function() {
@@ -67,14 +63,7 @@ function fetchAndDisplayGif(event) {
         $("#feedback").text("Hold it... gif coming soon!");
         setGifLoadedStatus(false);
 
-    } else {
-        document.getElementById('error').innerHTML = "No Gifs for you!";
-        $("#error").attr("hidden", false);
-    };
 }
-
-
-
 
 /**
  * toggles the visibility of UI elements based on whether a GIF is currently loaded.
