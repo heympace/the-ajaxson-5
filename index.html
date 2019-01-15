@@ -5,29 +5,49 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="request-gif.js"></script>
 
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,900" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <style>
-        .is-center { text-align: center; }
-        .titlebar { padding: 2em; background-color: #f5f5f5;}
-    </style>
+    <link rel="stylesheet" href="style.css" >
+
 </head>
 <body>
-    
-    <h1>The AJAXson 5</h1>
-    <form id="form-gif-request">
-        
-        <label>What kind of Jackson 5 related gif do you want?</label>
-        <br>
-        <input name="tag" id="tag" type="text" required/>
-        <br>
-        <input type="submit" value="Get my Gif!" />
-    </form>
+    <header class="container-fluid titlebar is-center">
+        <h1>AJAXson<span class="groovy">5</span></h1>
+    </header>
 
-    <img id="gif" src="" hidden="true"/>
-    <p id="feedback" hidden="true"></p>        
+    <section class="container">
+        <div class="form-group">
+            <form id="form-gif-request">
+                <label>What kind of Jackson 5 related gif do you want?</label>
+                <input class="form-control" name="tag" id="tag" type="text" required/>    
+                <label class="addPad">Riddle me this, to get your gif:</label>
+                
+                <div class="input-group">
+                    <input class="form-control validation" name="validation" id="usertest" type="text" required/> 
+                    <div class="input-group-addon">Jacksons are better than&nbsp;1.</div>  
+                    <p id="error" hidden="true"></p>
+                </div>
+                    
+                <input class="btn btn-dark" type="submit" value="Get my Gif!" />
+            </form>
+    
+            <img id="gif" src="" hidden="true"/>
+            <p id="feedback" hidden="true" class="red"></p>      
+        </div>
+    </section>
+
+    <div class="bg-palette">
+        <div class="bg bg-red"></div>
+        <div class="bg bg-red"></div>
+        <div class="bg bg-red"></div>
+        <div class="bg bg-red"></div>
+        <div class="bg bg-red"></div>
+    </div>
+    
 
 </body>
 </html>
